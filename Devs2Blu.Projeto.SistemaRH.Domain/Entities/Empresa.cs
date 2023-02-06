@@ -22,8 +22,9 @@ namespace Devs2Blu.Projeto.SistemaRH.Domain.Entities
 
         [Required]
         public string? CEO { get; set; }
-        public List<int> ColaboradorId { get; set; }
 
-        public virtual IEnumerable<Colaborador> Colaboradores { get; set; }
+        public List<int>? ColaboradorId { get; set; }
+
+        public virtual IEnumerable<Colaborador>? Colaboradores { get; set; }
     }
 }

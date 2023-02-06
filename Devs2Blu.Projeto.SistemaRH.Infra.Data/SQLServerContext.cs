@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Devs2Blu.Projeto.SistemaRH.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,14 @@ namespace Devs2Blu.Projeto.SistemaRH.Infra.Data
 
         #region DbSets
 
-
+        public DbSet<Empresa> Empresa { get; set; }
+        public DbSet<TipoUsuarios> TipoUsuarios { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Produto> Produto { get; set; }
+        public DbSet<Colaborador> Colaborador { get; set; }
+        public DbSet<MovimentacaoFinanceira> MovimentacaoFinanceira { get; set; }
+        public DbSet<TipoMovimentacao> NaturezaMovimentacao { get; set; }
+        public DbSet<Ponto> Ponto { get; set; }
 
         #endregion
     }
