@@ -25,7 +25,6 @@ namespace Devs2Blu.Projeto.SistemaRH.Domain.Entities
         public string? Status { get; set; }
         public DateTime DateAdmissao { get; set; }
         public DateTime? DateDemissao { get; set; }
-        public List<int>? PontosId { get; set; }
-        public virtual List<Ponto>? Pontos { get; set; }
+        public List<Ponto>? Pontos { get; set; }
     }
 }
