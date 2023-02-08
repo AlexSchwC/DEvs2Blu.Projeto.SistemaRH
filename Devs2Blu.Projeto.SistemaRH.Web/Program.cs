@@ -1,4 +1,6 @@
+using Devs2Blu.Projeto.SistemaRH.Domain.IRepositories;
 using Devs2Blu.Projeto.SistemaRH.Infra.Data;
+using Devs2Blu.Projeto.SistemaRH.Web.Controllers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +9,12 @@ var connectionString = builder.Configuration.GetConnectionString("SQLServerDB");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services
     .AddDbContext<SQLServerContext>(o => o.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<ITipoUsuariosRepository, TipoUsuariosRepository>();
 
 var app = builder.Build();
 

@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Devs2Blu.Projeto.SistemaRH.Domain\Devs2Blu.Projeto.SistemaRH.Domain.csproj" />
     <ProjectReference Include="..\Devs2Blu.Projeto.SistemaRH.Infra.Data\Devs2Blu.Projeto.SistemaRH.Infra.Data.csproj" />
   </ItemGroup>
 
