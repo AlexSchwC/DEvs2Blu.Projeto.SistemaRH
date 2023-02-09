@@ -12,6 +12,7 @@ using Devs2Blu.Projeto.SistemaRH.Domain.DTO;
 
 namespace Devs2Blu.Projeto.SistemaRH.Web.Controllers
 {
+    [Route("/usuarios/tipos")]
     public class TipoUsuariosController : Controller
     {
         private readonly ITipoUsuariosRepository _repository;
@@ -36,21 +37,25 @@ namespace Devs2Blu.Projeto.SistemaRH.Web.Controllers
             return View(allTipoCategories);
         }
 
-        public IActionResult Details()
-        {
-            return View();
-        }
+        //[Route("/detalhes")]
+        //public IActionResult Details()
+        //{
+        //    return View();
+        //}
 
+        [Route("/criar")]
         public IActionResult Create() 
         {
             return View();
         }
 
+        [Route("/editar")]
         public IActionResult Edit()
         {
             return View();
         }
 
+        [Route("/deletar")]
         public IActionResult Delete() 
         {
             return View();
@@ -58,6 +63,26 @@ namespace Devs2Blu.Projeto.SistemaRH.Web.Controllers
 
         #endregion
 
+        [HttpPost, Route("/createTipo")]
+        public async Task<IActionResult> CreateTipoUsuario([Bind("Nome")]TipoUsuarios obj)
+        {
+            await _repository.Save(obj);
+            return RedirectToAction("Index");
+        }
 
+        [HttpPut, Route("/alteraTipo")]
+        public async Task<IActionResult> UpdateTipoUsuario([Bind("Id", "Nome")]TipoUsuarios obj)
+        {
+            await _repository.Update(obj);
+            return RedirectToAction("Index");
+        }
+
+        [HttpDelete, Route("/deleteTipo")]
+        public async Task<IActionResult> DeleteTipoUsuario([Bind("Id", "Nome")]TipoUsuarios obj)
+        {
+            await _repository.Delete(obj);
+            TempData["Message"] = $"Tipo de Usuário : {obj.Nome} excluído com sucesso!";
+            return RedirectToAction("Index");
+        }
     }
 }
